@@ -18,7 +18,7 @@ export default function DataDisplay({type, ticker} : DataDisplayProps) {
     const dataRef = useRef<Candle[] | null>(null);
     const seriesRef = useRef<ISeriesApi<'Candlestick'> | null>(null);
 
-    const [timespan, setTimespan] = useState<IntervalKey>('month');
+    const [timespan, setTimespan] = useState<IntervalKey>('day');
 
 
     /**
