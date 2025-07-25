@@ -1,15 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { getItem } from "../../modules/api";
 import type { previousDayProps } from "../../types/propTypes";
+import type { PrevDayResponse } from "../../types/types";
 
 export default function PreviousDay({currency_name, ticker} : previousDayProps) {
-    const response = {
-        ticker: "AAPL",
-        queryCount: 1,
-        resultsCount: 1,
-        adjusted: true,
-        results: [
-            {
+    // Dummy response in case Polygon free tier runs out
+    const dummy_response: PrevDayResponse = {
             T: "AAPL",
             v: 46404072,
             vw: 213.6492,
@@ -19,13 +15,8 @@ export default function PreviousDay({currency_name, ticker} : previousDayProps) 
             l: 212.2301,
             t: 1753214400000,
             n: 549182
-            }
-        ],
-        status: "OK",
-        request_id: "664f27af870db4974e397b18bfa98b28",
-        count: 1
     }
-    const [prevDay, setPrevDay] = useState(response.results[0]);
+    const [prevDay, setPrevDay] = useState<PrevDayResponse>(dummy_response);
     const [closeDifference, setCloseDifference] = useState('');
     const [differencePercentage, setDifferencePercentage] = useState(0);
     const [differenceIsPositive, setDifferenceIsPositive] = useState(false);

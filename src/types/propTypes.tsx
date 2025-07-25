@@ -1,5 +1,7 @@
-import type { Candle } from "./types"
 
+/**
+ * Theoretically for a reusable Card. Was not really worth using with the limit on amount of requests
+ */
 export type TickerCardProps = {
       ticker: string,
       name: string,
@@ -14,20 +16,25 @@ export type TickerCardProps = {
       last_updated_utc: string,
 }
 
-export type TickerDetailProps = {
-    id: string
-}
-
+/**
+ * Props for DataDisplay Component. type could be used to switch between different chart types
+ */
 export type DataDisplayProps = {
     type: string,
     ticker: string
 }
 
+/**
+ * Props for previousDay Component.
+ */
 export type previousDayProps = {
   currency_name: string,
   ticker: string
 }
 
+/**
+ * Props for 
+ */
 export type DailyTicketSummary = {
   status: string,
   from: string,

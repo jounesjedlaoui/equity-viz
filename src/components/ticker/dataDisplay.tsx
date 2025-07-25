@@ -20,6 +20,10 @@ export default function DataDisplay({type, ticker} : DataDisplayProps) {
 
     const [timespan, setTimespan] = useState<IntervalKey>('month');
 
+
+    /**
+     * Setup Chart on component mount
+     */
     useEffect(() => {
         if (!containerRef.current || chartRef.current) return;
 
@@ -46,17 +50,20 @@ export default function DataDisplay({type, ticker} : DataDisplayProps) {
     }, [])
 
 
+    /**
+     * Fetch Chart Data from Polygon-API and apply timespan to query
+     */
     useEffect(() => {
         console.log(dataRef.current)
         if (!chartRef.current || !seriesRef.current) return;
 
+        // Determine the user-selected timespan
         const D = new Date();
         const F = new Date(D.getTime() - intervalsInMs[timespan]);
 
         const to = `${D.getFullYear()}-${String(D.getMonth() + 1).padStart(2, '0')}-${String(D.getDate()).padStart(2, '0')}`;
         const from = `${F.getFullYear()}-${String(F.getMonth() + 1).padStart(2, '0')}-${String(F.getDate()).padStart(2, '0')}`;
 
-        console.log( timespan ,orderedIntervals.indexOf(timespan) -2)
         let rangeTimespan = orderedIntervals[orderedIntervals.indexOf(timespan) - 2];
         rangeTimespan = rangeTimespan === 'second' ? 'hour' : rangeTimespan;
 

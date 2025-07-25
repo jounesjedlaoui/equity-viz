@@ -1,5 +1,10 @@
 import type { presetIntervals } from "../types/types";
 
+/**
+ * Formats a large number to be more easily readable
+ * @param value Raw marketcap
+ * @returns string - formatted Market cap (1.5B, 23M,...)
+ */
 export function formatMarketCap(value: number): string {
   if (value >= 1_000_000_000_000) {
     return (value / 1_000_000_000_000).toFixed(1) + "T";

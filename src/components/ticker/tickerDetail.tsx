@@ -1,17 +1,12 @@
 import { useEffect, useRef, useState } from "react"
-import type { TickerDetailProps, DailyTicketSummary } from "../../types/propTypes"
 import DataDisplay from "./dataDisplay"
 import PreviousDay from "./previousDay"
 import './tickerDetail.css'
-import { getItem } from "../../modules/api"
 import { useGlobalStore } from "../../modules/store"
 import { formatMarketCap } from "../../modules/helpers"
 
 
-
-
-export default function TickerDetail({id}: TickerDetailProps) {
-    const dailySummary= useRef<DailyTicketSummary | null>(null)
+export default function TickerDetail() {
     const isInitialized = useRef<boolean>(false);
     const {selectedTicker} = useGlobalStore();
     const [currentTicker, setCurrentTicker] = useState({
@@ -23,8 +18,11 @@ export default function TickerDetail({id}: TickerDetailProps) {
         market_cap: 0,
     });    
 
+    /**
+     * React-Hook called whenever the glabel var selectedTicker changes. this can only happen through user search
+     */
     useEffect(() => {
-        if(dailySummary.current || isInitialized.current) return;
+        if(isInitialized.current) return;
 
         fetch(`https://api.polygon.io/v3/reference/tickers/${selectedTicker}?apiKey=FkWqVMJsI09MUDdKC2T50_Mq8IxNCzRR`)
         .then(res => {
