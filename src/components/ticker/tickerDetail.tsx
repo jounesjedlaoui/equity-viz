@@ -24,7 +24,7 @@ export default function TickerDetail() {
     useEffect(() => {
         if(isInitialized.current) return;
 
-        fetch(`https://api.polygon.io/v3/reference/tickers/${selectedTicker}?apiKey=FkWqVMJsI09MUDdKC2T50_Mq8IxNCzRR`)
+        fetch(`https://api.polygon.io/v3/reference/tickers/${selectedTicker}?apiKey=${import.meta.env.VITE_API_KEY}`)
         .then(res => {
             console.log(res)
             res.json()
