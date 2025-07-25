@@ -1,0 +1,104 @@
+.ticker-detail {
+    text-align: start;
+    display: flex;
+    flex-direction: row;
+    margin-top: 5vh
+}
+
+.td-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+
+.td-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.left-side {
+    width: 60vw;
+}
+
+.right-side {
+    padding: 0 2rem;
+    width: 30vw;
+}
+
+.stock-icon {
+    height: 5vh;
+    width: 5vh;
+    margin-right: 1vw
+}
+
+.chart-container {
+    height: fit-content,
+}
+
+.previous-day {
+    text-align: end;
+}
+
+.pd-close {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: end;
+}
+
+.pd-trend {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.pd-trend h4 {
+    margin-left: 1rem;
+}
+
+.interval-selection {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 50vw;
+    height: 7vh;
+}
+
+h1 {
+    margin: unset
+}
+
+hr {
+    border-color: grey;
+    margin: 1rem 0
+}
+
+@media (orientation: portrait) {
+    .ticker-detail {
+        flex-direction: column;
+    }
+
+    .left-side {
+        width: unset;
+    }
+
+    .right-side {
+        width: unset;
+        padding: .2rem
+    }
+
+    .td-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
