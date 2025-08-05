@@ -1,4 +1,4 @@
-# Alchemy Home Assignment
+# Home Assignment
 
 To run this code, simply run `npm install` to install all dependencies.
 
